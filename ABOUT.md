@@ -5,7 +5,7 @@ I have picked java since it has been almost 12 years of being Java developer.
 Heroku link
 https://expedia-hotel-offer2.herokuapp.com/ 
 
-Travic CI link
+Travis CI link
 https://travis-ci.org/alturany/ExpediaHotelOffers
 
 Notes:
