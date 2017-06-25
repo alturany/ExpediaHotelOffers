@@ -11,7 +11,10 @@ git clone https://github.com/alturany/ExpediaHotelOffers.git
 Linux command: ./mvnw spring-boot:run 
 Windows command: mvnw.cmd spring-boot:run
  
-if you run the project from eclipse then you need to shut-down the server using this linux command
+
+If you run the project from eclipse then you need to shut-down the server using. 
+
+linux command:
 curl -X POST localhost:8080/shutdown
 
 Heroku link
