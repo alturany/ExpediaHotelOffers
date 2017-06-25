@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.expedia.offers.controller.HomePageControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.665 sec - in com.expedia.offers.controller.HomePageControllerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.9 sec - in com.expedia.offers.controller.HomePageControllerTest
