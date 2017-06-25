@@ -1,18 +1,22 @@
 
 I have picked java since it has been almost 12 years of being Java developer.
 
-//To shutdown
+//To run on your server, download the project from GitHub then in root directory of project type the following linux command
+ ./mvnw spring-boot:run 
+
+ 
+//To shutdown, use this linux command
 curl -X POST localhost:8080/shutdown
 
 Notes:
 
 1) localization should be done 
 
-2) I have invested int crafting a generic URI builder
+2) I have invested in crafting a generic URI builder
 
-3)  tried to use APIs to simplify my code as much as possible
+3) used Spring APIs to simplify my code as much as possible
 
-4) used layers to seperate concerns 
+4) used layers to separate concerns 
 
 4) no previous experience in
     1)Maven
