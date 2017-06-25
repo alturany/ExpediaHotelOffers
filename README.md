@@ -1,4 +1,4 @@
-# ExpediaHotelOffers
+# Expedia Hotel Offers
 
 ### To run application on Linux or Bash shell on Windows
 1. Install [java 8 JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
