@@ -1,0 +1,3 @@
+com\expedia\offers\ApplicationTest.class
+com\expedia\offers\command\HotelOfferSearchCommandTest.class
+com\expedia\offers\controller\HomePageControllerTest.class
