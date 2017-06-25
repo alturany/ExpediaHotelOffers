@@ -8,11 +8,11 @@
 ```
 git clone https://github.com/alturany/ExpediaHotelOffers.git
 ```
-1. To run the server execute this Maven command i
+5. To run the server execute this Maven command i
 ```
 ./mvnw spring-boot:run
 ``` 
-1. To shut-down the server execute 
+6. To shut-down the server execute 
 ```
 curl -X POST localhost:8080/shutdown
 ```
@@ -23,7 +23,7 @@ curl -X POST localhost:8080/shutdown
 ```
 git clone https://github.com/alturany/ExpediaHotelOffers.git
 ```
-1. In project's root directory execute
+4. In project's root directory execute
 ```
 java -jar ./target/offerservice-0.0.1.jar
 ```
