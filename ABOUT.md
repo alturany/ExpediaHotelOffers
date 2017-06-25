@@ -27,17 +27,18 @@ Notes:
 
 4) used layers to separate concerns 
 
-4) no previous experience in
-    1)Maven
-    2)Git
-    3)Spring
-    4)Rest services
-    5)Jackson JSON
-    6)ThymeLeaf
-    7)bootstrap
- Since I had no experience in almost all used technologies, that has leaded to:
- a) it took me much more longer time than your estimation.
- b) basic scenarios testing has been done; no in depth testing.
- c) search form is primitive, date picker should has been used instead of date fields
- d) results page is very primitive.
+5) no previous experience in
+    1. Maven.
+    2. Git.
+    3. Spring.
+    4. Rest services.
+    5. Jackson JSON.
+    6. ThymeLeaf.
+    7. bootstrap.
+
+Since I had no experience in almost all used technologies, that has leaded to:
+1) it took me much more longer time than your estimation.
+2) basic scenarios testing has been done; no in depth testing.
+3) search form is primitive, date picker should has been used instead of date fields
+4) results page is very primitive.
  
