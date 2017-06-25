@@ -18,12 +18,12 @@ Notes:
 
 5) no previous experience in
     1. Maven.
-    2. Git.
-    3. Spring.
-    4. Rest services.
-    5. Jackson JSON.
-    6. ThymeLeaf.
-    7. bootstrap.
+    1. Git.
+    1. Spring.
+    1. Rest services.
+    1. Jackson JSON.
+    1. ThymeLeaf.
+    1. bootstrap.
 
 Since I had no experience in almost all used technologies, that has leaded to:
 1) it took me much more longer time than your estimation.
