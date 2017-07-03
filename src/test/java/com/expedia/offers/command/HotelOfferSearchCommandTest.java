@@ -14,7 +14,9 @@ public class HotelOfferSearchCommandTest {
 		HotelOfferSearchCommand command = new HotelOfferSearchCommand();
 		command.setDestinationCity("Amman");
 
-		assertEquals("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationCity=Amman", command.buildRestUri());
+		final String expectedURI = "https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationCity=Amman";
+		assertEquals(expectedURI, command.buildRestUri());
+		assertEquals(expectedURI, command.functionalBuildRestUri());
 	}
 	
 	@Test
@@ -22,7 +24,9 @@ public class HotelOfferSearchCommandTest {
 		HotelOfferSearchCommand command = new HotelOfferSearchCommand();
 		command.setDestinationName("Amman");
 
-		assertEquals("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationName=Amman", command.buildRestUri());
+		final String expectedURI = "https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationName=Amman";
+		assertEquals(expectedURI, command.buildRestUri());
+		assertEquals(expectedURI, command.functionalBuildRestUri());
 	}
 
 	
@@ -33,7 +37,9 @@ public class HotelOfferSearchCommandTest {
 		
 		command.setMinTripStartDate(date);
 
-		assertEquals("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&minTripStartDate=:2017-06-25", command.buildRestUri());
+		final String expectedURI = "https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&minTripStartDate=:2017-06-25";
+		assertEquals(expectedURI, command.buildRestUri());
+		assertEquals(expectedURI, command.functionalBuildRestUri());
 	}
 	
 	@Test
@@ -44,7 +50,9 @@ public class HotelOfferSearchCommandTest {
 		command.setMinTripStartDate(date);
 		command.setDestinationName("Amman");
 		
-		assertEquals("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationName=Amman&minTripStartDate=:2017-06-25", command.buildRestUri());
+		String expectedURI = "https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel&destinationName=Amman&minTripStartDate=:2017-06-25";
+		assertEquals(expectedURI, command.buildRestUri());
+		assertEquals(expectedURI, command.functionalBuildRestUri());
 	}
 
 	private Date eidFitrDate() {

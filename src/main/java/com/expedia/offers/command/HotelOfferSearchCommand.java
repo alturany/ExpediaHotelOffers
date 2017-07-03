@@ -3,7 +3,10 @@ package com.expedia.offers.command;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
+import java.util.AbstractMap;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.function.Function;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -43,7 +46,7 @@ public class HotelOfferSearchCommand {
 	public void setDestinationName(String destinationName) {
 		this.destinationName = destinationName;
 	}
-	
+
 	public String getDestinationCity() {
 		return destinationCity;
 	}
@@ -124,22 +127,40 @@ public class HotelOfferSearchCommand {
 		this.maxGuestRating = maxGuestRating;
 	}
 
+	class RestQueryParam {
+		String paramName;
+		String paramValue;
+
+		public String getParamName() {
+			return paramName;
+		}
+
+		public void setParamName(String paramName) {
+			this.paramName = paramName;
+		}
+
+		public String getParamValue() {
+			return paramValue;
+		}
+
+		public void setParamValue(String paramValue) {
+			this.paramValue = paramValue;
+		}
+	}
+
 	/**
-	 * This method builds rest service URI based on properties populated into command.
-	 * reflection has been used to avoid properties names hard coding, 
-	 * also it will discover properties dynamically, so adding a new property 
-	 * to command will be easy since no change to this method would be needed 
+	 * This method builds rest service URI based on properties populated into
+	 * command. reflection has been used to avoid properties names hard coding,
+	 * also it will discover properties dynamically, so adding a new property to
+	 * command will be easy since no change to this method would be needed
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
 	public String buildRestUri() throws Exception {
-		// Those parts of URI are currently hard coded,
-		// refactoring should be done in future
-		// and responsibility of building this part should be moved to another location		
-	    UriComponentsBuilder uriBuilder = UriComponentsBuilder.newInstance()
-	  	      .scheme("https").host("offersvc.expedia.com")
-	  	      .path("/offers/v2/getOffers").queryParam("scenario","deal-finder").queryParam("page","foo").queryParam("uid", "foo").queryParam("productType","Hotel");
+		final UriComponentsBuilder uriBuilder = createHotelUriBuilder();
 
+	
 		PropertyDescriptor[] propDescArray = BeanUtils.getPropertyDescriptors(getClass());
 		for (PropertyDescriptor propDesc : propDescArray) {
 
@@ -148,17 +169,50 @@ public class HotelOfferSearchCommand {
 				Method getPropMethod = propDesc.getReadMethod();
 				Object propValue = getPropMethod.invoke(this);
 				if (propValue != null) {
-					if(propValue instanceof Date){
-						String dateStr = new SimpleDateFormat(DATE_FORMAT).format((Date)propValue);
-						uriBuilder.queryParam(propName, ":"+dateStr);
-					}else{
-						uriBuilder.queryParam(propName, propValue);
-					}
+					if (propValue instanceof Date)
+						propValue = ":"+new SimpleDateFormat(DATE_FORMAT).format(propValue);
+		            uriBuilder.queryParam(propDesc.getName(), propValue);
 				}
 			}
-		}
+        }
 
 		return uriBuilder.build().toUriString();
+	}
+
+	
+	
+	/**
+	 * This method does exactly the same as buildRestUri, but it's implemented in functional way
+	 * 
+	 */
+	public String functionalBuildRestUri() throws Exception {
+
+		final UriComponentsBuilder uriBuilder = createHotelUriBuilder();
+		
+		Arrays.stream(BeanUtils.getPropertyDescriptors(getClass()))
+		      .filter(propDesc -> !propDesc.getName().equals("class"))
+		      .map(propDesc -> {
+		    	  try {
+						Object value= propDesc.getReadMethod().invoke(HotelOfferSearchCommand.this);
+						return new AbstractMap.SimpleImmutableEntry<>(propDesc.getName(), value);
+					} catch (ReflectiveOperationException  e) {
+						e.printStackTrace();
+						throw new RuntimeException(e);
+					} 
+		         }
+		      )
+		      .filter(e -> e.getValue() != null)
+			  .map(e ->  e.getValue() instanceof Date? new AbstractMap.SimpleImmutableEntry<>(e.getKey(), ":"+new SimpleDateFormat(DATE_FORMAT).format(e.getValue())):e)
+			  .forEach(entry -> uriBuilder.queryParam(entry.getKey(), entry.getValue()));
+		
+		return uriBuilder.build().toUriString();
+	}
+	
+	private UriComponentsBuilder createHotelUriBuilder() {
+		final UriComponentsBuilder uriBuilder = UriComponentsBuilder.newInstance().scheme("https")
+				.host("offersvc.expedia.com").path("/offers/v2/getOffers").queryParam("scenario", "deal-finder")
+				.queryParam("page", "foo").queryParam("uid", "foo").queryParam("productType", "Hotel");
+		return uriBuilder;
 	}
 
 }
