@@ -31,3 +31,6 @@ Notes:
  b) basic scenarios testing has been done; no in depth testing.
  c) search form is primitive, date picker should has been used instead of date fields
  d) results page is very primitive.
+ 
+ Thanks,
+ Mahmood
