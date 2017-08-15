@@ -1,36 +1,22 @@
+## About Project
 
 I have picked java since it has been almost 12 years of being Java developer.
 
-//To run on your server, download the project from GitHub then in root directory of project type the following linux command
- ./mvnw spring-boot:run 
+[Heroku link](https://expedia-hotel-offer2.herokuapp.com/ )
 
- 
-//To shutdown, use this linux command
-curl -X POST localhost:8080/shutdown
+[Travis CI link](https://travis-ci.org/alturany/ExpediaHotelOffers)
 
 Notes:
 
-1) localization should be done 
-
-2) I have invested in crafting a generic URI builder
-
-3) used Spring APIs to simplify my code as much as possible
-
-4) used layers to separate concerns 
-
-4) no previous experience in
-    1)Maven
-    2)Git
-    3)Spring
-    4)Rest services
-    5)Jackson JSON
-    6)ThymeLeaf
-    7)bootstrap
- Since I had no experience in almost all used technologies, that has leaded to:
- a) it took me much more longer time than your estimation.
- b) basic scenarios testing has been done; no in depth testing.
- c) search form is primitive, date picker should has been used instead of date fields
- d) results page is very primitive.
- 
- Thanks,
- Mahmood
+1. localization should be done 
+1. I have invested in crafting a generic URI builder, so the [method](https://github.com/alturany/ExpediaHotelOffers/blob/master/src/main/java/com/expedia/offers/command/HotelOfferSearchCommand.java#L135) that generates Rest URI will require no changes if a new search parameter has been added.
+1. Spring APIs have been used to simplify code as much as possible
+1. Layers have been used to separate concerns and enable testing in isolation 
+1. Since I had no experience in almost all frameworks/APIs **(Spring, Maven, Git, Rest services, Jackson JSON, ThymeLeaf, bootstrap,  HeroKu, Travis CI)** that has leaded to:
+    1. longer time than your estimation.
+    1. Only basic scenarios testing has been done (no in depth testing).
+    1. search form is primitive, date picker should has been used instead of date fields, also many missing search fields.
+    1. results page is very primitive.
+	
+Thanks,
+Mahmood

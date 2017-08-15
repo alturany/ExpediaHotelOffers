@@ -1,0 +1,17 @@
+com\expedia\offers\json\model\HotelUrgencyInfo.class
+com\expedia\offers\command\HotelOfferSearchCommand.class
+com\expedia\offers\json\model\Persona.class
+com\expedia\offers\json\model\HotelInfo.class
+com\expedia\offers\json\model\OfferDateRange.class
+com\expedia\offers\json\model\OfferInfo.class
+com\expedia\offers\controller\HomePageController.class
+com\expedia\offers\json\model\Offers.class
+com\expedia\offers\json\model\UserInfo.class
+com\expedia\offers\json\model\HotelPricingInfo.class
+com\expedia\offers\Application.class
+com\expedia\offers\service\HotelOfferService.class
+com\expedia\offers\json\model\Hotel.class
+com\expedia\offers\json\model\HotelOffers.class
+com\expedia\offers\json\model\HotelUrls.class
+com\expedia\offers\json\model\Destination.class
+com\expedia\offers\json\model\HotelScores.class
